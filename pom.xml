@@ -9,6 +9,14 @@
 	<packaging>jar</packaging>
 	<name>My Bestest Fighter!!!</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Specify JDK -->
+        <java.version>1.6</java.version>
+        <jdk.home>${env.JAVA_HOME}</jdk.home>
+    </properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -16,13 +24,16 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
+
+                    <executable>${jdk.home}/bin/javac</executable>
+                    <fork>true</fork>
 				</configuration>
 			</plugin>
 
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.3.2</version>
@@ -34,12 +45,37 @@
 						</manifest>
 					</archive>
 				</configuration>
-			</plugin>
+			</plugin>-->
 
+            <!-- Build with dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <!-- Main class -->
+                                <manifest>
+                                    <mainClass>lt.visma.codefights.sdk.boilerplate.SDK</mainClass>
+                                </manifest>
+                            </archive>
+
+                            <finalName>my-fighter</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
 		</plugins>
 	</build>
-
-	<dependencies>
-	</dependencies>
 </project>

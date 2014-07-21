@@ -1,0 +1,7 @@
+Instructions:
+1. Build uses JAVA_HOME environment variable by default. I want to use other JDK version, change following:
+    pom.xml: jdk.home property.
+    build.bat: jdk variable.
+2. Implement MyFighter#makeNextMove() method.
+3. Build via Maven or just run build.bat/build.sh.
+

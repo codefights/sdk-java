@@ -1,12 +1,12 @@
 package lt.visma.codefights.sdk.boilerplate;
 
-import java.io.IOException;
-
 import lt.visma.codefights.sdk.MyFighter;
 import lt.visma.codefights.sdk.boilerplate.server.ServerMode;
 import lt.visma.codefights.sdk.model.IFighter;
 import lt.visma.codefights.sdk.samples.Boxer;
 import lt.visma.codefights.sdk.samples.Kickboxer;
+
+import java.io.IOException;
 
 public class SDK {
 	public static String FIGHT_HUMAN_SWITCH = "--fight-me";
@@ -23,6 +23,7 @@ public class SDK {
 			+ "\truns your bot in codefights engine environment";
 
 	public static void main(String[] args) throws IOException {
+
 		if (isFightHumanMode(args))
 			new Arena()
 					.registerFighter(new Human(), "You")

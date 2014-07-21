@@ -35,6 +35,7 @@ public class MyFighter implements IFighter{
 	 *  Your score is 13 pts, while opponent scores only 10.
 	 */
     public Move makeNextMove(Move opponentsLastMove, int myLastScore, int opponentsLastScore){
+
         return new Move()
         			.addAttack(Area.LEGS)
         			.addBlock(Area.NOSE)
