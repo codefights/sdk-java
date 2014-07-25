@@ -42,7 +42,12 @@ public class Arena {
 
 		while (f1Lifepoints > 0 && f2Lifepoints > 0) {
 			Move move1 = fighter1.makeNextMove(f2Move, score1, score2);
+			if (GameScoringRules.isMoveLegal(move1)==false)
+				throw new IllegalArgumentException(f1name+" made an illegal move: "+move1);
+
 			Move move2 = fighter2.makeNextMove(f1Move, score2, score1);
+			if (GameScoringRules.isMoveLegal(move2)==false)
+				throw new IllegalArgumentException(f2name+" made an illegal move: "+move2);
 
 			score1 = GameScoringRules.calculateScore(move1.getAttacks(),
 					move2.getBlocks());
