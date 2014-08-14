@@ -2,7 +2,7 @@
 cls
 
 rem Specify JDK
-set jdk=%JAVA_HOME%\bin
+rem set jdk=%JAVA_HOME%\bin
 
 echo BUILDING YOUR FIGHTER...
 rmdir /S /Q target
