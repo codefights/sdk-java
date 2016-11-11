@@ -22,13 +22,13 @@ public class Arena {
 		if (fighters.size() != 2)
 			throw new IllegalArgumentException("Must be 2 fighters!");
 
-		String f1name = fighters.keySet().iterator().next();
-		IFighter fighter1 = fighters.get(f1name);
-		fighters.remove(f1name);
-
 		String f2name = fighters.keySet().iterator().next();
 		IFighter fighter2 = fighters.get(f2name);
 		fighters.remove(f2name);
+
+		String f1name = fighters.keySet().iterator().next();
+		IFighter fighter1 = fighters.get(f1name);
+		fighters.remove(f1name);
 
 		commentator.setFighterNames(f1name, f2name);
 

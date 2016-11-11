@@ -29,9 +29,7 @@ public class Human implements IFighter {
 	}
 
 	private void printInstructions() {
-		consoleOut.println("Make your move by (A)ttacking and (B)locking (N)ose, (J)aw, (B)elly, (G)roin, (L)egs");
-		consoleOut.println("  (for example, BN BB AN)");
-		consoleOut.print(": ");
+		consoleOut.print("Make your move by (A)ttacking and (B)locking (N)ose, (J)aw, (B)elly, (G)roin, (L)egs (for example, BN BB AN): ");
 	}
 
 	private Move parseInput(String input) throws Exception {
