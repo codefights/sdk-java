@@ -36,8 +36,10 @@ public class MyFighter implements IFighter{
 	 */
     public Move makeNextMove(Move opponentsLastMove, int myLastScore, int opponentsLastScore){
 
-        return new Move()
-        			.addAttack(Area.NOSE);
+		if (opponentsLastMove == null) {
+			return new Move().addAttack(Area.NOSE);
+		}
+        return opponentsLastMove;
     }
 }
 
